@@ -22,7 +22,7 @@ Please feel free to contact me if you have specific questions about this build o
 
 Some notes on the parts:  The RCExplorer items (frame, PDB, and servo) are no longer available.  Any PDB that can power three ESCs and the servo should work.  Ideally the PDB would have a 6V output to drive the tail service a little faster.  A quadcopter AIO or 4-in-1 ESC should work, if you use a seperate BEC to power the servo.
 
-David recommended the Kakute F4 flight controller.  My first build used on and it worked fine, but I wanted more ports for accessories so I upgraded to the F7.
+David recommended the Kakute F4 flight controller.  My first build used one and it worked fine, but I wanted more ports for accessories so I upgraded to the F7.
 
 ## Wiring
 
