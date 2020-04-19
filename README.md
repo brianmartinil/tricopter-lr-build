@@ -76,7 +76,7 @@ The rest are on pads:
 
 * BUZ- -> Buzzer black wire
 * 5V -> Buzzer red wire
-* LED -> Servo signal wire
+* LED -> M5
 * RSI -> Servo feeback wire (optional, most firmware doesn't support it)
 
 ### PDB
@@ -90,7 +90,7 @@ I tried dRonin when I was using an F4 FC, because it took advantage of the tail 
 ### Betaflight setup notes
 
 * I used the CLI to remap the motors because I wired them completely out of order (hence the lack of detail in the wiring section above).
-* You need to use the CLI to remap the LED port to a servo, so that Betaflight can drive the tail servo.
+* You need to use the CLI to remap the servo 1 port to the pin `C09` (the former MOTOR 1 pin), so that Betaflight can drive the tail servo.  This is a difference from the Kakute F4.  With the F4, you had to use the LED port.
 * Most configuration (ports, failsafe, receiver, motors, OSD, GPS rescue, etc) is exactly the same as a quad so I won't go into detail here.
 * Servo 1 in the CLI maps to servo 5 in the configurator for some reason.  Use the configurator to set the mid so that the motor is exactly vertical, and set the min and max for 45° tilt.
 
@@ -117,3 +117,7 @@ A diff and full dump of my configs are in this repo.  **They are for reference o
 * [Kakute F7 V1.5 manual](http://www.holybro.com/manual/Holybro_Kakute_F7_V1.5_Manual.pdf)
 * [RCExplorer product page](https://rcexplorer.se/product/tricopter-lr/)
 * [RCExplorer build video](https://www.youtube.com/watch?v=rNy6HMie_Yg)
+
+## Changes
+
+* Update to reflect using M5 for the servo signal instead of LED.

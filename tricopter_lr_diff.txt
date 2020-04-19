@@ -18,8 +18,8 @@ manufacturer_id HBRO
 resource MOTOR 1 E09
 resource MOTOR 2 B00
 resource MOTOR 3 B01
-resource SERVO 1 D12
-resource LED_STRIP 1 NONE
+resource MOTOR 5 NONE
+resource SERVO 1 C09
 
 # mixer
 mixer TRI
@@ -132,6 +132,21 @@ set gyro_1_align_yaw = 2700
 set name = Tricopter LR
 
 profile 0
+
+# profile 0
+set p_pitch = 70
+set i_pitch = 25
+set d_pitch = 15
+set f_pitch = 0
+set p_roll = 70
+set i_roll = 25
+set d_roll = 15
+set f_roll = 0
+set p_yaw = 100
+set i_yaw = 10
+set f_yaw = 0
+set d_min_roll = 0
+set d_min_pitch = 0
 
 rateprofile 0
 
