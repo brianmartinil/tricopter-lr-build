@@ -76,8 +76,7 @@ The rest are on pads:
 
 * BUZ- -> Buzzer black wire
 * 5V -> Buzzer red wire
-* LED -> M5
-* RSI -> Servo feeback wire (optional, most firmware doesn't support it)
+* M5 -> Servo signal wire
 
 ### PDB
 
