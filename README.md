@@ -92,6 +92,7 @@ I tried dRonin when I was using an F4 FC, because it took advantage of the tail 
 * You need to use the CLI to remap the servo 1 port to the pin `C09` (the former MOTOR 1 pin), so that Betaflight can drive the tail servo.  This is a difference from the Kakute F4.  With the F4, you had to use the LED port.
 * Most configuration (ports, failsafe, receiver, motors, OSD, GPS rescue, etc) is exactly the same as a quad so I won't go into detail here.
 * Servo 1 in the CLI maps to servo 5 in the configurator for some reason.  Use the configurator to set the mid so that the motor is exactly vertical, and set the min and max for 45° tilt.
+* With the BN-880 mounted with the GPS antenna facing up and the connector plug facing aft, the "MAG alignment" needs to be set for "CW 270° flip".  Otherwise the flight controller won't be able to tell where "forward" is, the home arrow won't point the right direction, and GPS rescue will behave oddly (which is to say it will start to fly the wrong direction, the sanity checks will fail, and it will disarm and crash).
 
 ### PIDs
 
@@ -111,6 +112,12 @@ Rate profiles are all .75 for rate, .70 for super rate, zero expo.  For throttle
 
 A diff and full dump of my configs are in this repo.  **They are for reference only**.  Always set up your own config by hand.
 
+### Betaflight GPS Rescue Mode
+
+Basically, be really careful using GPS rescue mode.   It isn't designed to be a reliable navigation system, it is a last-ditch effort to bring your drone back close enough that you maybe regain manual control.  If it can't do it, it will disarm and crash.  This is a good thing because it prevents flyaways if rescue mode encounters issues.  But it is sort of a bad thing during testing because if you have a setting wrong somewhere (magnetometer orientation, I'm looking at you), you can get a crash on a test flight.
+
+For testing GPS rescue mode, I would recommend binding rescue mode to a momentary switch and setting sanity checks to "failsafe only."  That way you will stiff have some safety if the 'copter actually failsafes, but you can let go of the switch and recover if your test goes poorly.  Obviously this testing should only be done in a clear area will away from people and property, and you should be prepared to react quickly if anything weird happens.  Then once you have rescue mode tested and working, go back and set sanity checks to "on".
+
 ## Links
 
 * [Kakute F7 V1.5 manual](http://www.holybro.com/manual/Holybro_Kakute_F7_V1.5_Manual.pdf)
@@ -120,3 +127,5 @@ A diff and full dump of my configs are in this repo.  **They are for reference o
 ## Changes
 
 * Update to reflect using M5 for the servo signal instead of LED.
+* Added notes about magnetometer alignment for the BN-880.
+* Changed to disable sanity checks on manual activation of GPS rescue mode (for testing only, see above)

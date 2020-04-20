@@ -1,5 +1,3 @@
-dump
-
 # version
 # Betaflight / STM32F745 (S745) 4.1.5 Mar 16 2020 / 05:21:22 (d4e74e39c) MSP API: 1.42
 # manufacturer_id: HBRO   board_name: KAKUTEF7   custom defaults: YES
@@ -402,8 +400,8 @@ mode_color 7 0 3
 aux 0 0 0 1300 2100 0 0
 aux 1 1 1 900 1150 0 0
 aux 2 2 1 1300 1700 0 0
-aux 3 27 2 1300 2100 0 0
-aux 4 46 3 1300 2100 0 0
+aux 3 46 2 1300 2100 0 0
+aux 4 0 0 900 900 0 0
 aux 5 0 0 900 900 0 0
 aux 6 0 0 900 900 0 0
 aux 7 0 0 900 900 0 0
@@ -533,17 +531,17 @@ set acc_lpf_hz = 10
 set acc_trim_pitch = 0
 set acc_trim_roll = 0
 set acc_calibration = -91,65,-40
-set align_mag = DEFAULT
+set align_mag = CW270FLIP
 set mag_align_roll = 0
-set mag_align_pitch = 0
-set mag_align_yaw = 0
+set mag_align_pitch = 1800
+set mag_align_yaw = 2700
 set mag_bustype = I2C
 set mag_i2c_device = 1
 set mag_i2c_address = 0
 set mag_spi_device = 0
 set mag_hardware = AUTO
 set mag_declination = 0
-set mag_calibration = 65,-262,173
+set mag_calibration = 243,-74,-120
 set baro_bustype = I2C
 set baro_spi_device = 0
 set baro_i2c_device = 1
@@ -685,7 +683,7 @@ set gps_rescue_initial_alt = 50
 set gps_rescue_descent_dist = 200
 set gps_rescue_landing_alt = 5
 set gps_rescue_landing_dist = 10
-set gps_rescue_ground_speed = 2000
+set gps_rescue_ground_speed = 1000
 set gps_rescue_throttle_p = 150
 set gps_rescue_throttle_i = 20
 set gps_rescue_throttle_d = 50
@@ -694,11 +692,11 @@ set gps_rescue_velocity_i = 20
 set gps_rescue_velocity_d = 15
 set gps_rescue_yaw_p = 40
 set gps_rescue_throttle_min = 1100
-set gps_rescue_throttle_max = 1600
+set gps_rescue_throttle_max = 1900
 set gps_rescue_ascend_rate = 500
 set gps_rescue_descend_rate = 150
 set gps_rescue_throttle_hover = 1350
-set gps_rescue_sanity_checks = RESCUE_SANITY_ON
+set gps_rescue_sanity_checks = RESCUE_SANITY_FS_ONLY
 set gps_rescue_min_sats = 8
 set gps_rescue_min_dth = 100
 set gps_rescue_allow_arming_without_fix = OFF
@@ -885,7 +883,7 @@ set pwr_on_arm_grace = 5
 set scheduler_optimize_rate = AUTO
 set vtx_band = 4
 set vtx_channel = 1
-set vtx_power = 1
+set vtx_power = 4
 set vtx_low_power_disarm = OFF
 set vtx_freq = 5740
 set vtx_pit_mode_freq = 0

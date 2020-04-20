@@ -1,7 +1,3 @@
-# 
-
-# diff
-
 # version
 # Betaflight / STM32F745 (S745) 4.1.5 Mar 16 2020 / 05:21:22 (d4e74e39c) MSP API: 1.42
 # manufacturer_id: HBRO   board_name: KAKUTEF7   custom defaults: YES
@@ -66,8 +62,7 @@ serial 5 64 115200 57600 0 115200
 aux 0 0 0 1300 2100 0 0
 aux 1 1 1 900 1150 0 0
 aux 2 2 1 1300 1700 0 0
-aux 3 27 2 1300 2100 0 0
-aux 4 46 3 1300 2100 0 0
+aux 3 46 2 1300 2100 0 0
 
 # vtxtable
 vtxtable bands 6
@@ -84,8 +79,11 @@ vtxtable powerlabels 25 200 600 MAX
 
 # master
 set acc_calibration = -91,65,-40
+set align_mag = CW270FLIP
+set mag_align_pitch = 1800
+set mag_align_yaw = 2700
 set mag_hardware = AUTO
-set mag_calibration = 65,-262,173
+set mag_calibration = 243,-74,-120
 set baro_hardware = AUTO
 set rssi_channel = 16
 set fpv_mix_degrees = 10
@@ -97,7 +95,10 @@ set motor_pwm_protocol = DSHOT600
 set failsafe_procedure = GPS-RESCUE
 set gps_provider = UBLOX
 set gps_auto_baud = ON
+set gps_rescue_ground_speed = 1000
+set gps_rescue_throttle_max = 1900
 set gps_rescue_throttle_hover = 1350
+set gps_rescue_sanity_checks = RESCUE_SANITY_FS_ONLY
 set pid_process_denom = 1
 set osd_units = IMPERIAL
 set osd_warn_launch_control = OFF
@@ -126,7 +127,7 @@ set osd_stat_bbox = OFF
 set osd_stat_bb_no = OFF
 set vtx_band = 4
 set vtx_channel = 1
-set vtx_power = 1
+set vtx_power = 4
 set vtx_freq = 5740
 set gyro_1_align_yaw = 2700
 set name = Tricopter LR
