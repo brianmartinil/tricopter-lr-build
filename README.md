@@ -84,9 +84,26 @@ I don't have any notes on my PDB wiring.  You aren't missing much since the Baby
 
 ## Firmware
 
-I tried dRonin when I was using an F4 FC, because it took advantage of the tail servo feedback wire.  It is pretty bare-bones by modern firmware standards.  I switched to Betaflight and didn't notice any huge loss in performance (I am not what you would call a great drone pilot, keep that in mind).  Since moving up to the Kakute F7, I have only used Betaflight.
+I tried dRonin when I was using an F4 FC, because it took advantage of the tail servo feedback wire.  It is pretty bare-bones by modern firmware standards.  I switched to Betaflight and didn't notice any huge loss in performance (I am not what you would call a great drone pilot, keep that in mind).  I started with Betaflight on the F7 but have since switched to iNAV.
+
+### iNAV
+
+I'm still working on getting iNAV set up for the Tri LR.  With the current values in the dump/diffs, I am getting pretty decent acro mode flight, RTH, and position hold.
+
+TODOs:
+* I accidentally crashed it while disarming when I meant to switch to position hold.  Need to look into a custom mix/logic on the transmitter to only allow disarm if the momentary switch is held while the arm switch is moved.
+* Slight tail wag in horizon mode hover.
+* Need to PID tune aggressively.  I'm happy-ish with the yaw PIDs but pitch and roll need to be fixed up.  Probably need to reduce Ps, reduce Is, then tweak D.  Roll and pitch rates are higher than necessary.  This is supposed to be a long-range cruiser.
+* Need to increase max angle in angle mode.  Feels sluggish.
+
+Notes:
+* Before first flight, use stick commands to do compass alighment outdoors.
+* First flight outdoors, in case it's unflyable or flies to the moon.
+* Indoors (or dead calm outdoors) use stick commands to trim acclerometer settings for zero drift in horizon mode.  Really helps with position hold.
 
 ### Betaflight setup notes
+
+**Note**: I have given up on Betaflight because I do long range and I needed better navigation features.  Consider this stuff outdated.
 
 * I used the CLI to remap the motors because I wired them completely out of order (hence the lack of detail in the wiring section above).
 * You need to use the CLI to remap the servo 1 port to the pin `C09` (the former MOTOR 1 pin), so that Betaflight can drive the tail servo.  This is a difference from the Kakute F4.  With the F4, you had to use the LED port.
